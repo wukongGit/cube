@@ -125,6 +125,7 @@ class ListActivity : BaseActivity() {
                                 mAdapter.notifyDataSetChanged()
                             }
                         }
+
                     } else {
                         if (mCurrentPage == 0) {
                             DBUtils.write(mLocalKey, p0)
