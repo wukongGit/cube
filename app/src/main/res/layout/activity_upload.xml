@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_background">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tool_bar"
+        style="?attr/toolbarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"/>
+<ScrollView
+    android:layout_below="@id/tool_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_middle">
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/bg_add"
+                android:scaleType="fitXY"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/click_to_submit_styleable_picture"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/space_middle"
+                android:textColor="@color/textColorHint"/>
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormInputItem"
+                      android:background="@color/white">
+            <TextView
+                style="@style/SettingName"
+                android:text="@string/level" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/space_middle"
+                android:paddingRight="@dimen/space_middle"
+                android:paddingBottom="@dimen/space_middle">
+                <CheckBox
+                    android:id="@+id/cb_1"
+                    style="@style/MyCheckBox"
+                    android:text="10"/>
+                <CheckBox
+                    android:id="@+id/cb_2"
+                    style="@style/MyCheckBox"
+                    android:text="20"/>
+                <CheckBox
+                    android:id="@+id/cb_3"
+                    style="@style/MyCheckBox"
+                    android:text="30"/>
+                <CheckBox
+                    android:id="@+id/cb_4"
+                    style="@style/MyCheckBox"
+                    android:text="50"/>
+                <CheckBox
+                    android:id="@+id/cb_5"
+                    style="@style/MyCheckBox"
+                    android:text="100"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormInputItem"
+                      android:layout_marginTop="@dimen/space_large"
+                      android:background="@color/white">
+            <TextView
+                style="@style/SettingName"
+                android:text="@string/description" />
+            <EditText
+                android:id="@+id/et_description"
+                style="@style/FormInput1"
+                android:minHeight="20dp"
+                android:hint="@string/description_hint"
+                android:maxLength="20" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormInputItem"
+                      android:layout_marginTop="@dimen/space_large"
+                      android:background="@color/white">
+            <TextView
+                style="@style/SettingName"
+                android:text="@string/cai" />
+            <EditText
+                android:id="@+id/et_cai"
+                style="@style/FormInput1"
+                android:hint="@string/cai_hint"
+                android:maxLength="50" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/FormInputItem"
+                      android:layout_marginTop="@dimen/space_large"
+                      android:background="@color/white">
+            <TextView
+                style="@style/SettingName"
+                android:text="@string/author" />
+            <EditText
+                android:id="@+id/et_author"
+                style="@style/FormInput1"
+                android:minHeight="20dp"
+                android:maxLength="20"
+                android:hint="@string/author"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_margin="@dimen/space_large"
+            android:background="@drawable/btn_login_selector"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </LinearLayout>
+</ScrollView>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+</RelativeLayout>

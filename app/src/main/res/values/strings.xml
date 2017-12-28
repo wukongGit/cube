@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">China Puzzle</string>
+
+    <string name="no_data">has no data</string>
+    <string name="loading">loading</string>
+    <string name="more">more</string>
+    <string name="no_more_data">no more data…</string>
+
+    <string name="tips">tips</string>
+    <string name="world_record">World record</string>
+    <string name="best_range">Best ranking</string>
+    <string name="second">second</string>
+    <string name="minute">minute</string>
+    <string name="hour">hour</string>
+    <string name="range_description">ranking %1$s</string>
+    <string name="success_description">Congratulations! &lt;br/&gt;Complete the puzzle with &lt;font color=#ff0303 &gt;%1$d &lt;/font&gt;second(s) in difficulty degree of &lt;font color=#ff0303 &gt;%2$d &lt;/font&gt;，ranking &lt;font color=#ff0303 &gt;%3$d &lt;/font&gt; in history !</string>
+
+    <string name="submit">Submit </string>
+    <string name="submit_styleable_picture">Upload personalized pictures </string>
+    <string name="click_to_submit_styleable_picture">Click to upload personalized pictures </string>
+    <string name="author">Author </string>
+    <string name="cai">Surprise </string>
+    <string name="cai_hint">The secret should be appeared to anyone who completed the picture</string>
+    <string name="description">Description </string>
+    <string name="description_hint">A short description </string>
+    <string name="level">Degree of Difficulty </string>
+    <string name="please_upload_picture">Please upload one picture </string>
+    <string name="please_set_level">Please set the degree of difficulty </string>
+    <string name="network_error">please check the network </string>
+
+    <string name="goto_setting">Go setting</string>
+    <string name="i_known">I known</string>
+    <string name="permission_open">Open permission</string>
+    <string name="permission_open_storage_description">If you decline the permission, you will not be able to use the function. Open the permission at [Setting]>[Permissions]</string>
+</resources>

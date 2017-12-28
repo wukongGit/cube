@@ -1,0 +1,141 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def buildTime() {
+    def date = new Date().format("yyyy-MM-dd-HH-mm-ss", TimeZone.getTimeZone("PRC"))
+    println("build time:" + date)
+    return date
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.sunc.cube"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        multiDexEnabled true
+        manifestPlaceholders = [BUILD_TIME_VALUE: buildTime()]
+    }
+
+    signingConfigs {
+        config {
+            def propsFile = rootProject.file('pro.properties')
+            def props = new Properties()
+            props.load(new FileInputStream(propsFile))
+            storeFile = file(props['key.store'])
+            storePassword = props['key.store.password']
+            keyAlias = props['key.alias']
+            keyPassword = props['key.alias.password']
+        }
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    productFlavors {
+        ali {}
+        yingyongbao {}
+        _360 {}
+        xiaomi {}
+        huawei {}
+        baidu {}
+        meizu {}
+    }
+    //批量配置
+    productFlavors.all { flavor ->
+        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a"
+            }
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.packageApplication.outputFile
+                    //println "[LOG] sssss: ${variant.name}"
+                    if (variant.name.endsWith("Release")) {
+                        // release包输出到工程根目录下的release文件夹下
+                        def fileDir = "${rootProject.rootDir}/release"
+                        // 输出apk名称为tjyc_v1.0_yyyy-MM-dd-HH-mm-ss_release.apk
+                        def fileName = "cube_v" +
+                                defaultConfig.versionName +
+                                "_" +
+                                defaultConfig.manifestPlaceholders.get("BUILD_TIME_VALUE").toString() +
+                                "_${variant.name}.apk"
+                        output.packageApplication.outputFile = new File(fileDir, fileName)
+                    }
+                }
+            }
+        }
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+
+            ndk {
+                abiFilters "armeabi", "armeabi-v7a", "x86"
+            }
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.packageApplication.outputFile
+                    // 使用默认的Run按钮执行的任务是":${ProjectName}:assembleDebug"，
+                    // 在这个工程中即是：":TjManagement:assembleDebug"
+                    // 使用默认的Run按钮执行时，不对生成的apk进行拷贝和重命名，以免影响调试
+                    // 除了":TjManagement:assembleDebug"的其他任务都会执行apk的拷贝和重命名的操作
+                    if (variant.name.equals("debug")
+                            && !project.gradle.startParameter.taskNames.contains(":" + project.name + ":assembleDebug")) {
+                        // debug包输出到工程根目录下的debug文件夹下
+                        def fileDir = "${rootProject.rootDir}/debug"
+                        // 输出apk名称为tjyc_v1.0_yyyy-MM-dd-HH-mm-ss_debug.apk
+                        def fileName = "cube_v" +
+                                defaultConfig.versionName +
+                                "_" +
+                                defaultConfig.manifestPlaceholders.get("BUILD_TIME_VALUE").toString() +
+                                "_debug.apk"
+                        output.packageApplication.outputFile = new File(fileDir, fileName)
+                    }
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(path: ':dialogplus')
+    testCompile "junit:junit:${JUNIT_VERSION}"
+    compile "com.android.support:multidex:${MULTIDEX_VERSION}"
+    compile "com.android.support:appcompat-v7:${APPCOMPAT_V7_VERSION}"
+    compile "com.android.support.constraint:constraint-layout:${CONSTRAINT_LAYOUT_VERSION}"
+    //compile "com.jakewharton.rxbinding:rxbinding:${RXBINDING_VERSION}"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "io.paperdb:paperdb:${PAPERDB_VERSION}"
+    compile "com.squareup:otto:${EVENTBUS_OTTO_VERSION}"
+    compile "com.tbruyelle.rxpermissions:rxpermissions:${RXPERMISSIONS_VERSION}"
+    compile "com.android.support:design:${DESIGN_VERSION}"
+    compile "com.github.bumptech.glide:glide:${GLIDE_VERSION}"
+    compile("cn.bmob.android:bmob-sdk:${BMOB_SDK_VERSION}") {
+        exclude group: 'rxjava'
+    }
+    //友盟
+    compile "com.umeng.analytics:analytics:${UMENG_VERSION}"
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}
+repositories {
+    mavenCentral()
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--主色 正常颜色-->
+    <color name="main_color_normal">#2D84D6</color>
+    <!--主色 按下效果颜色-->
+    <color name="main_color_pressed">#802D84D6</color>
+    <!--次级 内容蓝色-->
+    <color name="main_content_color">#38ABFC</color>
+
+    <color name="transparent">@android:color/transparent</color>
+    <color name="window_background">#F7F8FB</color>
+    <color name="panel_background">#80000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="half_black">#80000000</color>
+    <color name="black">#ff000000</color>
+
+    <!--文字1级颜色-->
+    <color name="textColor">#333333</color>
+    <!--文字2级颜色-->
+    <color name="textColorPrimary">#666666</color>
+    <!--文字3级颜色-->
+    <color name="textColorPrimaryLight">#999999</color>
+    <!--文字4级颜色-->
+    <color name="textColorHint">#CCCCCC</color>
+
+    <!--分割线-->
+    <!--白色背景分割线-->
+    <color name="dividerX1">#e5e5e5</color>
+    <!--H1背景色分割线-->
+    <color name="dividerX2">#d6d6d6</color>
+    <!--特殊情况需加深分割线-->
+    <color name="dividerX3">#ccc</color>
+
+    <!--背景色-->
+    <!--大背景色-->
+    <color name="bgH1">#f0f0f0</color>
+    <!--小背景色-->
+    <color name="bgH2">#fafafa</color>
+    <!--特殊深色背景-->
+    <color name="bgH3">#222c39</color>
+    <!--不可点击背景色-->
+    <color name="bgH4">#d6d6d6</color>
+</resources>

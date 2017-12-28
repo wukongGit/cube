@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_size">48dp</dimen>
+    <dimen name="footbar_size">50dp</dimen>
+
+    <dimen name="image_piece_size">100dp</dimen>
+
+    <dimen name="space_smaller">3dp</dimen>
+    <dimen name="space_mini">5dp</dimen>
+    <dimen name="space_normal">8dp</dimen>
+    <dimen name="space_middle">12dp</dimen>
+    <dimen name="space_large">16dp</dimen>
+    <dimen name="space_xlarge">24dp</dimen>
+    <dimen name="space_xxlarge">32dp</dimen>
+    <dimen name="space_xxxlarge">36dp</dimen>
+
+    <dimen name="start_btn_width">180dp</dimen>
+    <dimen name="start_btn_height">40dp</dimen>
+
+    <dimen name="jiang_padding">10dp</dimen>
+
+</resources>

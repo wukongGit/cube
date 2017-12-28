@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'checkstyle'
+
+check.dependsOn('checkstyle')
+
+task checkstyle(type: Checkstyle) {
+    configFile = rootProject.file('checkstyle.xml')
+    source 'src'
+    include '**/*.java'
+    exclude '**/gen/**'
+
+    classpath = files()
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+}
+
+dependencies {
+    testCompile "junit:junit:${JUNIT_VERSION}"
+    testCompile "org.mockito:mockito-core:${MOCKITO_VERSION}"
+    testCompile "org.robolectric:robolectric:${ROBOLECTRIC_VERSION}"
+    testCompile "org.assertj:assertj-core:${ASSERTJ_CORE_VERSION}"
+
+    provided "com.android.support:support-annotations:${ANNOTATIONS_VERSION}"
+}

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">智力拼图</string>
+
+    <string name="no_data">暂无数据</string>
+    <string name="loading">加载中</string>
+    <string name="more">点击加载更多</string>
+    <string name="no_more_data">下面没有了…</string>
+
+    <string name="tips">提示</string>
+    <string name="world_record">世界纪录</string>
+    <string name="best_range">最佳排名</string>
+    <string name="second">秒</string>
+    <string name="minute">分</string>
+    <string name="hour">时</string>
+    <string name="range_description">第%1$s名</string>
+    <string name="success_description">恭喜您! &lt;font color=#ff0303 &gt;%1$d &lt;/font&gt;秒完成拼图，难度系数 &lt;font color=#ff0303 &gt;%2$d &lt;/font&gt;，历史排名第 &lt;font color=#ff0303 &gt;%3$d &lt;/font&gt;。</string>
+
+    <string name="submit">提交 </string>
+    <string name="submit_styleable_picture">上传个性图片 </string>
+    <string name="click_to_submit_styleable_picture">点击上传个性图片 </string>
+    <string name="author">作者 </string>
+    <string name="cai">彩蛋 </string>
+    <string name="cai_hint">其他人成功完成此图片，即可看到此内容</string>
+    <string name="description">描述 </string>
+    <string name="description_hint">一句话描述 </string>
+    <string name="level">难度系数 </string>
+    <string name="please_upload_picture">请上传1张图片 </string>
+    <string name="please_set_level">请设置难度系数 </string>
+    <string name="network_error">请检查网络 </string>
+
+    <string name="goto_setting">去设置</string>
+    <string name="i_known">我知道了</string>
+    <string name="permission_open">开启权限</string>
+    <string name="permission_open_storage_description">如果你拒绝使用存储权限,将会导致无法使用现有功能.请在[设置]>[权限]中打开</string>
+</resources>
